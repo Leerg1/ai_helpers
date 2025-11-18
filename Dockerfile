@@ -22,7 +22,7 @@ EXPOSE 8000 11434
 CMD ["bash", "-c", "\
     ollama serve & \
     sleep 5 && \
-    ollama pull deepseek-coder:6.7b-instruct-q4_1 && \
+    ollama pull deepseek-coder:6.7b-instruct-q8_0 && \
     uvicorn reviewer.main:app --host 0.0.0.0 --port 8000 \
 "]
 
