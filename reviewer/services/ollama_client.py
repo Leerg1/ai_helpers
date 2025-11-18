@@ -9,7 +9,7 @@ def from_deepseek_coder_6_7(prompt: str) -> ReviewResponse:
     """
     url = "http://localhost:11434/api/generate"
     payload = {
-        "model": "deepseek-coder:6.7b-instruct-q8_0",
+        "model": "deepseek-coder:6.7b-instruct-q4_1",
         "prompt": prompt,
         "stream": False,
         "format": "json",
