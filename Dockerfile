@@ -22,7 +22,7 @@ EXPOSE 8000 11434
 CMD ["bash", "-c", "\
     ollama serve & \
     sleep 5 && \
-    ollama pull deepseek-coder:1.3b && \
+    ollama pull deepseek-coder:6.7b-instruct-q4_1 && \
     uvicorn reviewer.main:app --host 0.0.0.0 --port 8000 \
 "]
 
@@ -34,10 +34,13 @@ CMD ["bash", "-c", "\
 
 
 #Прогрев
-#curl -s -X POST http://localhost:8000/api/ai_review_deepseek_coder_1_3 \
+#curl -s -X POST http://localhost:8000/api/ai_review_deepseek_coder_6_7 \
 #  -H "Content-Type: application/json" \
 #  -d '{"code": "a==1"}'
 
 #curl http://localhost:11434/api/generate \
 #  -d '{"model": "deepseek-coder:1.3b", "prompt": "test", "stream": false}' \
 #  | jq
+
+#передать файл
+#docker cp /Users/vlad/PycharmProjects/PythonProject/ai_helpers/reviewer/routers/reviewer.py ai_helpers:/app/reviewer
